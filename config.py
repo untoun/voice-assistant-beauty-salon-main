@@ -20,8 +20,8 @@ class Settings(BaseSettings):
     # Telegram
     telegram_bot_token: str = Field(..., description="Токен Telegram бота")
 
-    # OpenAI
-    openai_api_key: str = Field(..., description="API ключ OpenAI")
+    # OpenAI (опционально, если используется Yandex для TTS)
+    openai_api_key: str = Field(default="", description="API ключ OpenAI")
 
     # Google Sheets
     google_sheets_credentials_json: str = Field(
