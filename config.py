@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     # Telegram
     telegram_bot_token: str = Field(..., description="Токен Telegram бота")
 
-    # OpenAI (опционально, если используется Yandex для TTS)
+    # OpenAI (опционально для Yandex-only конфигурации)
     openai_api_key: str = Field(default="", description="API ключ OpenAI")
 
     # Google Sheets
@@ -119,6 +119,7 @@ class Settings(BaseSettings):
     yandex_api_key: str = Field(default="", description="Яндекс SpeechKit API ключ")
     yandex_folder_id: str = Field(default="", description="Яндекс Cloud Folder ID")
     tts_provider: str = Field(default="openai", description="Провайдер TTS: openai или yandex")
+    stt_provider: str = Field(default="auto", description="Провайдер STT: auto/openai/yandex")
 
     @field_validator("working_hours_end")
     @classmethod
